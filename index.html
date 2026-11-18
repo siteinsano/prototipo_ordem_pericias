@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -8,365 +9,72 @@
 
 <style>
 :root{
- --bg:#0c0a10;
- --panel:#17121e;
- --line:#49345e;
- --purple:#9b6bd1;
- --light:#d8c2f4;
- --white:#f7f3fb;
- --muted:#b9afc3;
- --danger:#e29aab;
- --ok:#b9dfc3;
+ --bg:#0c0a10;--panel:#17121e;--line:#49345e;
+ --purple:#9b6bd1;--light:#d8c2f4;--white:#f7f3fb;
+ --muted:#b9afc3;--danger:#e29aab;--ok:#b9dfc3;
 }
-
 *{box-sizing:border-box}
-
 body{
- margin:0;
- min-height:100vh;
- color:var(--white);
+ margin:0;min-height:100vh;color:var(--white);
  background:radial-gradient(ellipse at 50% -10%,#352044 0,#17101e 36%,var(--bg) 76%);
  font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
-
 button,input,select{font:inherit}
-
-main{
- width:min(760px,100%);
- margin:auto;
- padding:25px 16px 45px;
-}
-
-header{
- text-align:center;
- margin:8px 0 22px;
-}
-
-.sig{
- font-size:.7rem;
- letter-spacing:.25em;
- text-transform:uppercase;
- color:var(--light);
-}
-
-h1{
- font-size:clamp(1.6rem,6vw,2.4rem);
- line-height:1.12;
- letter-spacing:.04em;
- margin:10px 0 7px;
-}
-
-.subtitle{
- color:var(--muted);
- font-size:.92rem;
-}
-
-.alpha{
- display:inline-block;
- border:1px solid #76549a;
- color:#e4d1fa;
- border-radius:99px;
- padding:3px 10px;
- font-size:.65rem;
- letter-spacing:.17em;
- margin-top:8px;
-}
-
-.card{
- background:linear-gradient(145deg,rgba(35,26,46,.97),rgba(20,16,26,.98));
- border:1px solid var(--line);
- border-radius:20px;
- padding:21px;
- box-shadow:0 16px 45px #0005;
-}
-
+main{width:min(760px,100%);margin:auto;padding:25px 16px 45px}
+header{text-align:center;margin:8px 0 22px}
+.sig{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--light)}
+h1{font-size:clamp(1.6rem,6vw,2.4rem);line-height:1.12;letter-spacing:.04em;margin:10px 0 7px}
+.subtitle{color:var(--muted);font-size:.92rem}
+.alpha{display:inline-block;border:1px solid #76549a;color:#e4d1fa;border-radius:99px;padding:3px 10px;font-size:.65rem;letter-spacing:.17em;margin-top:8px}
+.card{background:linear-gradient(145deg,rgba(35,26,46,.97),rgba(20,16,26,.98));border:1px solid var(--line);border-radius:20px;padding:21px;box-shadow:0 16px 45px #0005}
 .stack{display:grid;gap:14px}
-
-label{
- display:block;
- font-size:.78rem;
- color:var(--light);
- font-weight:750;
- letter-spacing:.08em;
- text-transform:uppercase;
- margin-bottom:7px;
-}
-
-select,input{
- width:100%;
- background:#100d16;
- color:var(--white);
- border:1px solid #63477d;
- border-radius:12px;
- padding:13px;
- outline:none;
-}
-
-button{
- border:0;
- border-radius:12px;
- padding:13px 16px;
- font-weight:750;
- cursor:pointer;
- transition:transform .12s,filter .12s;
-}
-
+label{display:block;font-size:.78rem;color:var(--light);font-weight:750;letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
+select,input{width:100%;background:#100d16;color:var(--white);border:1px solid #63477d;border-radius:12px;padding:13px;outline:none}
+button{border:0;border-radius:12px;padding:13px 16px;font-weight:750;cursor:pointer;transition:transform .12s,filter .12s}
 button:active{transform:scale(.985)}
 button:disabled{opacity:.45;cursor:not-allowed}
-
-.primary{
- background:linear-gradient(135deg,#a477d5,#70439e);
- color:white;
- box-shadow:0 7px 20px #7d4eaa44;
-}
-
-.secondary{
- background:#2a2035;
- color:var(--white);
- border:1px solid #5c4374;
-}
-
-.ghost{
- background:transparent;
- color:var(--light);
- border:1px solid #5c4374;
-}
-
-.danger{
- background:#48202e;
- color:#ffdce4;
- border:1px solid #8d465d;
-}
-
+.primary{background:linear-gradient(135deg,#a477d5,#70439e);color:white;box-shadow:0 7px 20px #7d4eaa44}
+.secondary{background:#2a2035;color:var(--white);border:1px solid #5c4374}
+.ghost{background:transparent;color:var(--light);border:1px solid #5c4374}
+.danger{background:#48202e;color:#ffdce4;border:1px solid #8d465d}
 .small{font-size:.78rem;color:var(--muted)}
-
-.notice{
- border-left:3px solid var(--purple);
- padding:10px 12px;
- background:#21182b;
- border-radius:0 10px 10px 0;
- color:#d8cde2;
- font-size:.83rem;
-}
-
-.toprow{
- display:flex;
- justify-content:space-between;
- align-items:center;
- gap:12px;
- margin-bottom:15px;
-}
-
-.progress{
- height:7px;
- background:#33283e;
- border-radius:9px;
- overflow:hidden;
- margin:10px 0 20px;
-}
-
-.progress>div{
- height:100%;
- background:linear-gradient(90deg,#71459a,#c19be9);
- width:0;
- transition:width .2s;
-}
-
-.character-banner{
- background:#251a32;
- border:1px solid #644782;
- border-radius:13px;
- padding:12px 14px;
- margin-bottom:20px;
-}
-
-.character-banner .eyebrow{
- font-size:.67rem;
- color:var(--light);
- letter-spacing:.14em;
- text-transform:uppercase;
-}
-
-.character-banner strong{
- display:block;
- font-size:1.2rem;
- margin-top:2px;
-}
-
-.question-number{
- font-size:.74rem;
- color:var(--light);
- letter-spacing:.12em;
- text-transform:uppercase;
-}
-
-h2{
- font-size:clamp(1.65rem,6vw,2.1rem);
- margin:3px 0 4px;
-}
-
-.description{
- color:#c9c0d1;
- font-size:.9rem;
- margin:0 0 18px;
-}
-
+.notice{border-left:3px solid var(--purple);padding:10px 12px;background:#21182b;border-radius:0 10px 10px 0;color:#d8cde2;font-size:.83rem}
+.toprow{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}
+.progress{height:7px;background:#33283e;border-radius:9px;overflow:hidden;margin:10px 0 20px}
+.progress>div{height:100%;background:linear-gradient(90deg,#71459a,#c19be9);width:0;transition:width .2s}
+.character-banner{background:#251a32;border:1px solid #644782;border-radius:13px;padding:12px 14px;margin-bottom:20px}
+.character-banner .eyebrow{font-size:.67rem;color:var(--light);letter-spacing:.14em;text-transform:uppercase}
+.character-banner strong{display:block;font-size:1.2rem;margin-top:2px}
+.question-number{font-size:.74rem;color:var(--light);letter-spacing:.12em;text-transform:uppercase}
+h2{font-size:clamp(1.65rem,6vw,2.1rem);margin:3px 0 4px}
+.description{color:#c9c0d1;font-size:.9rem;margin:0 0 18px}
 .answers{display:grid;gap:9px}
-
-.answer{
- display:flex;
- align-items:center;
- gap:12px;
- text-align:left;
- width:100%;
- padding:11px 13px;
- background:#17121e;
- color:var(--white);
- border:1px solid #49345e;
- border-radius:13px;
-}
-
-.answer .letter{
- width:34px;
- height:34px;
- display:grid;
- place-items:center;
- flex:none;
- border-radius:10px;
- background:#30213e;
- color:#e3cff9;
- font-weight:850;
-}
-
-.answer.selected{
- border:2px solid #bd94e8;
- background:#2a1d37;
- box-shadow:0 0 0 2px #a77bd122;
-}
-
-.answer.selected .letter{
- background:#8b5db9;
- color:white;
-}
-
-.nav{
- display:flex;
- gap:10px;
- margin-top:20px;
-}
-
+.answer{display:flex;align-items:center;gap:12px;text-align:left;width:100%;padding:11px 13px;background:#17121e;color:var(--white);border:1px solid #49345e;border-radius:13px}
+.answer .letter{width:34px;height:34px;display:grid;place-items:center;flex:none;border-radius:10px;background:#30213e;color:#e3cff9;font-weight:850}
+.answer.selected{border:2px solid #bd94e8;background:#2a1d37;box-shadow:0 0 0 2px #a77bd122}
+.answer.selected .letter{background:#8b5db9;color:white}
+.nav{display:flex;gap:10px;margin-top:20px}
 .nav button{flex:1}
-
 .hidden{display:none!important}
 .center{text-align:center}
-
-hr{
- border:0;
- border-top:1px solid #49345e;
- margin:18px 0;
-}
-
+hr{border:0;border-top:1px solid #49345e;margin:18px 0}
 .list{display:grid;gap:10px}
-
-.record{
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:12px;
- background:#17121e;
- border:1px solid #49345e;
- border-radius:12px;
- padding:13px;
-}
-
+.record{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#17121e;border:1px solid #49345e;border-radius:12px;padding:13px}
 .record strong{display:block}
 .record small{color:var(--muted)}
-
-.record-actions{
- display:flex;
- gap:7px;
- flex-wrap:wrap;
-}
-
-.record-actions button{
- padding:8px 10px;
- font-size:.78rem;
-}
-
-.stats{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:10px;
-}
-
-.stat{
- padding:13px;
- background:#17121e;
- border:1px solid #49345e;
- border-radius:12px;
-}
-
-.stat b{
- font-size:1.5rem;
- display:block;
-}
-
-.stat span{
- font-size:.75rem;
- color:var(--muted);
-}
-
-.result-grid{
- display:grid;
- grid-template-columns:repeat(2,minmax(0,1fr));
- gap:8px;
-}
-
-.result-item{
- padding:10px;
- background:#17121e;
- border:1px solid #40304f;
- border-radius:10px;
-}
-
-.result-item b{
- display:block;
- font-size:.86rem;
-}
-
-.result-item span{
- font-size:.78rem;
- color:var(--light);
-}
-
-.status{
- font-size:.82rem;
- color:var(--ok);
- min-height:1.2em;
-}
-
-.sound-toggle{
- position:fixed;
- right:12px;
- bottom:12px;
- z-index:5;
- background:#241a30;
- color:#eadcf8;
- border:1px solid #72528f;
- border-radius:99px;
- padding:10px 13px;
- font-size:.78rem;
- box-shadow:0 5px 18px #0007;
-}
-
-footer{
- text-align:center;
- color:#8f8498;
- font-size:.7rem;
- margin-top:22px;
- letter-spacing:.14em;
-}
-
+.record-actions{display:flex;gap:7px;flex-wrap:wrap}
+.record-actions button{padding:8px 10px;font-size:.78rem}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stat{padding:13px;background:#17121e;border:1px solid #49345e;border-radius:12px}
+.stat b{font-size:1.5rem;display:block}
+.stat span{font-size:.75rem;color:var(--muted)}
+.result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.result-item{padding:10px;background:#17121e;border:1px solid #40304f;border-radius:10px}
+.result-item b{display:block;font-size:.86rem}
+.result-item span{font-size:.78rem;color:var(--light)}
+.status{font-size:.82rem;color:var(--ok);min-height:1.2em}
+.sound-toggle{position:fixed;right:12px;bottom:12px;z-index:5;background:#241a30;color:#eadcf8;border:1px solid #72528f;border-radius:99px;padding:10px 13px;font-size:.78rem;box-shadow:0 5px 18px #0007}
+footer{text-align:center;color:#8f8498;font-size:.7rem;margin-top:22px;letter-spacing:.14em}
 @media(max-width:480px){
  main{padding:19px 12px 65px}
  .card{padding:16px}
@@ -387,13 +95,9 @@ footer{
  <div class="alpha">VERSÃO ALPHA</div>
 </header>
 
-<!-- INÍCIO -->
-
 <section id="home" class="card stack">
-
  <div>
   <label for="character">Seu personagem</label>
-
   <select id="character">
    <option value="">Selecione um personagem...</option>
    <option>Kalel</option>
@@ -407,97 +111,66 @@ footer{
    <option>Cristina</option>
   </select>
  </div>
-
  <div class="notice">
   Escolha o personagem — não coloque seu nome verdadeiro.
   Cada personagem tem uma avaliação própria.
  </div>
-
+ <p class="status" id="homeStatus" role="status"></p>
  <button class="primary" id="start">Começar avaliação</button>
  <button class="ghost" id="masterOpen">Acesso do mestre</button>
-
  <p class="small center">28 perícias • 6 opções por pergunta</p>
 </section>
 
-<!-- QUESTIONÁRIO -->
-
 <section id="quiz" class="card hidden">
-
  <div class="toprow">
   <span class="question-number" id="counter">PERÍCIA 1 DE 28</span>
   <span class="small" id="percent">4%</span>
  </div>
-
- <div class="progress">
-  <div id="progressBar"></div>
- </div>
-
+ <div class="progress"><div id="progressBar"></div></div>
  <div class="character-banner">
   <div class="eyebrow">Seu personagem é bom em:</div>
   <strong id="quizCharacter"></strong>
  </div>
-
  <div class="question-number">Avaliação de habilidade</div>
  <h2 id="skillName"></h2>
  <p class="description" id="skillDescription"></p>
-
  <div class="answers" id="answers"></div>
-
  <div class="nav">
   <button class="secondary" id="back">Voltar</button>
   <button class="primary" id="next">Próxima perícia</button>
  </div>
 </section>
 
-<!-- CONCLUSÃO -->
-
 <section id="done" class="card stack hidden">
-
  <div class="center">
   <div class="sig">Avaliação concluída</div>
   <h2>Respostas enviadas</h2>
   <p class="subtitle" id="doneText"></p>
  </div>
-
  <p class="status center" id="sendStatus" role="status"></p>
-
  <button class="primary" id="returnHome">Voltar ao início</button>
 </section>
 
-<!-- LOGIN DO MESTRE -->
-
 <section id="masterLogin" class="card stack hidden">
-
  <div>
   <div class="sig">Área restrita</div>
   <h2>Painel do mestre</h2>
-  <p class="subtitle">
-   Entre com o e-mail e a senha da conta autorizada.
-  </p>
+  <p class="subtitle">Entre com o e-mail e a senha da conta autorizada.</p>
  </div>
-
  <div>
   <label for="masterEmail">E-mail</label>
-  <input id="masterEmail" type="email"
-   autocomplete="username" placeholder="Seu e-mail">
+  <input id="masterEmail" type="email" autocomplete="username" placeholder="Seu e-mail">
  </div>
-
  <div>
   <label for="masterPassword">Senha</label>
-  <input id="masterPassword" type="password"
-   autocomplete="current-password" placeholder="Sua senha">
+  <input id="masterPassword" type="password" autocomplete="current-password" placeholder="Sua senha">
  </div>
-
  <p class="status" id="loginError" role="alert"></p>
-
  <button class="primary" id="login">Entrar</button>
  <button class="ghost" id="loginBack">Voltar</button>
 </section>
 
-<!-- PAINEL DO MESTRE -->
-
 <section id="dashboard" class="card stack hidden">
-
  <div class="toprow">
   <div>
    <div class="sig">Área restrita</div>
@@ -505,60 +178,38 @@ footer{
   </div>
   <button class="ghost" id="logout">Sair</button>
  </div>
-
  <div class="stats">
-  <div class="stat">
-   <b id="recordCount">0</b>
-   <span>Avaliações recebidas</span>
-  </div>
-
-  <div class="stat">
-   <b>9</b>
-   <span>Personagens disponíveis</span>
-  </div>
+  <div class="stat"><b id="recordCount">0</b><span>Avaliações recebidas</span></div>
+  <div class="stat"><b>9</b><span>Personagens disponíveis</span></div>
  </div>
-
  <div class="toprow">
   <strong>Registros</strong>
   <button class="secondary" id="export">Exportar CSV</button>
  </div>
-
  <p class="status" id="dashboardStatus" role="status"></p>
-
  <div id="records" class="list"></div>
-
  <p class="notice">
   Excluir uma avaliação libera aquele personagem para responder novamente.
   A exclusão não pode ser desfeita.
  </p>
-
  <div id="detail" class="hidden"></div>
 </section>
 
 <footer>ORDEM PARANORMAL • ALPHA</footer>
-
 </main>
 
-<button id="soundToggle" class="sound-toggle"
- type="button" aria-pressed="false">
+<button id="soundToggle" class="sound-toggle" type="button" aria-pressed="false">
  ♫ Som ambiente: desligado
 </button>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script>
 
-/* CONFIGURAÇÃO DO SUPABASE */
+/* CONFIGURAÇÃO */
 
-const SUPABASE_URL =
-"https://pbfiptrhubcfcbfaavwe.supabase.co";
-
-const SUPABASE_PUBLISHABLE_KEY =
-"sb_publishable_KgZxhpvrgADE1xY1bDfHBA_YFKf8vhS";
-
-const MASTER_USER_ID =
-"9b07d077-2d6c-4ba3-92cb-dcf623554a6b";
-
+const SUPABASE_URL = "https://pbfiptrhubcfcbfaavwe.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_KgZxhpvrgADE1xY1bDfHBA_YFKf8vhS";
+const MASTER_USER_ID = "9b07d077-2d6c-4ba3-92cb-dcf623554a6b";
 const TABLE = "respostas_personagens";
 
 const supabaseClient = window.supabase.createClient(
@@ -566,173 +217,89 @@ const supabaseClient = window.supabase.createClient(
  SUPABASE_PUBLISHABLE_KEY
 );
 
-
 /* PERÍCIAS */
 
 const SKILLS = [
-
-["Acrobacia","Realizar movimentos ágeis, saltos e equilibrar-se."],
-
-["Adestramento","Treinar, controlar e lidar com animais."],
-
-["Artes","Produzir, interpretar ou avaliar obras artísticas."],
-
-["Atletismo","Correr, saltar, escalar e realizar esforços físicos."],
-
-["Atualidades","Conhecer acontecimentos recentes e informações gerais."],
-
-["Ciências","Aplicar conhecimentos científicos, como biologia, química e física."],
-
-["Crime","Arrombar fechaduras, furtar e realizar atividades criminosas."],
-
-["Diplomacia","Negociar, convencer e resolver conflitos pacificamente."],
-
-["Enganação","Mentir, blefar e disfarçar suas intenções."],
-
-["Fortitude","Resistir a doenças, venenos e condições físicas adversas."],
-
-["Furtividade","Esconder-se e movimentar-se sem ser percebido."],
-
-["Iniciativa","Reagir rapidamente e agir no começo de uma situação."],
-
-["Intimidação","Assustar, ameaçar ou pressionar alguém."],
-
-["Intuição","Perceber intenções, sentimentos e comportamentos suspeitos."],
-
-["Investigação","Procurar pistas, analisar evidências e solucionar mistérios."],
-
-["Luta","Utilizar armas corpo a corpo e realizar ataques físicos."],
-
-["Medicina","Diagnosticar problemas, tratar ferimentos e prestar primeiros socorros."],
-
-["Ocultismo","Conhecer rituais, criaturas e fenômenos paranormais."],
-
-["Percepção","Notar detalhes por meio dos sentidos."],
-
-["Pilotagem","Conduzir veículos e controlar meios de transporte."],
-
-["Pontaria","Utilizar armas de ataque à distância com precisão."],
-
-["Profissão","Aplicar conhecimentos específicos de uma profissão."],
-
-["Reflexos","Reagir rapidamente a ameaças e evitar perigos."],
-
-["Religião","Conhecer religiões, crenças, símbolos e práticas religiosas."],
-
-["Sobrevivência","Encontrar recursos, orientar-se e sobreviver em ambientes hostis."],
-
-["Tática","Elaborar estratégias e coordenar ações em situações de combate."],
-
-["Tecnologia","Utilizar, consertar e compreender equipamentos tecnológicos."],
-
-["Vontade","Resistir a pressões psicológicas, medo e manipulações mentais."]
-
+ ["Acrobacia","Realizar movimentos ágeis, saltos e equilibrar-se."],
+ ["Adestramento","Treinar, controlar e lidar com animais."],
+ ["Artes","Produzir, interpretar ou avaliar obras artísticas."],
+ ["Atletismo","Correr, saltar, escalar e realizar esforços físicos."],
+ ["Atualidades","Conhecer acontecimentos recentes e informações gerais."],
+ ["Ciências","Aplicar conhecimentos científicos, como biologia, química e física."],
+ ["Crime","Arrombar fechaduras, furtar e realizar atividades criminosas."],
+ ["Diplomacia","Negociar, convencer e resolver conflitos pacificamente."],
+ ["Enganação","Mentir, blefar e disfarçar suas intenções."],
+ ["Fortitude","Resistir a doenças, venenos e condições físicas adversas."],
+ ["Furtividade","Esconder-se e movimentar-se sem ser percebido."],
+ ["Iniciativa","Reagir rapidamente e agir no começo de uma situação."],
+ ["Intimidação","Assustar, ameaçar ou pressionar alguém."],
+ ["Intuição","Perceber intenções, sentimentos e comportamentos suspeitos."],
+ ["Investigação","Procurar pistas, analisar evidências e solucionar mistérios."],
+ ["Luta","Utilizar armas corpo a corpo e realizar ataques físicos."],
+ ["Medicina","Diagnosticar problemas, tratar ferimentos e prestar primeiros socorros."],
+ ["Ocultismo","Conhecer rituais, criaturas e fenômenos paranormais."],
+ ["Percepção","Notar detalhes por meio dos sentidos."],
+ ["Pilotagem","Conduzir veículos e controlar meios de transporte."],
+ ["Pontaria","Utilizar armas de ataque à distância com precisão."],
+ ["Profissão","Aplicar conhecimentos específicos de uma profissão."],
+ ["Reflexos","Reagir rapidamente a ameaças e evitar perigos."],
+ ["Religião","Conhecer religiões, crenças, símbolos e práticas religiosas."],
+ ["Sobrevivência","Encontrar recursos, orientar-se e sobreviver em ambientes hostis."],
+ ["Tática","Elaborar estratégias e coordenar ações em situações de combate."],
+ ["Tecnologia","Utilizar, consertar e compreender equipamentos tecnológicos."],
+ ["Vontade","Resistir a pressões psicológicas, medo e manipulações mentais."]
 ];
-
-
-/* ALTERNATIVAS */
 
 const OPTIONS = [
-
-["A","Desconhece completamente"],
-["B","Muito ruim nisso"],
-["C","Meio ruim nisso"],
-["D","Neutro nisso"],
-["E","Meio bom nisso"],
-["F","Muito bom nisso!"]
-
+ ["A","Desconhece completamente"],
+ ["B","Muito ruim nisso"],
+ ["C","Meio ruim nisso"],
+ ["D","Neutro nisso"],
+ ["E","Meio bom nisso"],
+ ["F","Muito bom nisso!"]
 ];
-
-
-/* PERSONAGENS */
 
 const CHARACTERS = [
- "Kalel",
- "Lisandre",
- "Sol",
- "Arman",
- "Ísis",
- "Morgana",
- "Ykaro",
- "Virgulino",
- "Cristina"
+ "Kalel","Lisandre","Sol","Arman","Ísis",
+ "Morgana","Ykaro","Virgulino","Cristina"
 ];
-
 
 /* ESTADOS */
 
 let current = 0;
 let selected = Array(28).fill(null);
 let character = "";
-
 let audioContext = null;
 let ambientNodes = null;
 let ambientOn = false;
 
 const $ = id => document.getElementById(id);
 
-
 /* NAVEGAÇÃO */
 
 function show(id){
-
- const sections = [
-  "home",
-  "quiz",
-  "done",
-  "masterLogin",
-  "dashboard"
- ];
-
- sections.forEach(section=>{
+ ["home","quiz","done","masterLogin","dashboard"].forEach(section=>{
   $(section).classList.toggle("hidden",section !== id);
  });
-
 }
-
-
-/* MENSAGENS */
 
 function setStatus(id,msg,isError=false){
-
  $(id).textContent = msg;
-
- $(id).style.color = isError
-  ? "#e9a5b5"
-  : "#b9dfc3";
-
+ $(id).style.color = isError ? "#e9a5b5" : "#b9dfc3";
 }
 
-
-/* SISTEMA DE SOM */
+/* SOM */
 
 function getAudio(){
-
- const AudioCtx =
-  window.AudioContext ||
-  window.webkitAudioContext;
-
+ const AudioCtx = window.AudioContext || window.webkitAudioContext;
  if(!AudioCtx) return null;
-
- if(!audioContext){
-  audioContext = new AudioCtx();
- }
-
- if(audioContext.state === "suspended"){
-  audioContext.resume();
- }
-
+ if(!audioContext) audioContext = new AudioCtx();
+ if(audioContext.state === "suspended") audioContext.resume();
  return audioContext;
-
 }
 
-
-/* SOM AMBIENTE */
-
 function startAmbient(){
-
  const ctx = getAudio();
-
  if(!ctx || ambientNodes) return;
 
  const master = ctx.createGain();
@@ -741,7 +308,6 @@ function startAmbient(){
 
  const osc1 = ctx.createOscillator();
  const osc2 = ctx.createOscillator();
-
  const gain1 = ctx.createGain();
  const gain2 = ctx.createGain();
 
@@ -755,158 +321,94 @@ function startAmbient(){
 
  osc1.connect(gain1);
  osc2.connect(gain2);
-
  gain1.connect(master);
  gain2.connect(master);
 
  osc1.start();
  osc2.start();
 
- ambientNodes = {
-  osc1,
-  osc2,
-  master
- };
-
+ ambientNodes = {osc1,osc2,master};
  ambientOn = true;
-
  updateSoundButton();
-
 }
 
-
-/* DESLIGAR SOM */
-
 function stopAmbient(){
-
  if(!ambientNodes) return;
-
  try{
   ambientNodes.osc1.stop();
   ambientNodes.osc2.stop();
   ambientNodes.master.disconnect();
  }catch(e){}
-
  ambientNodes = null;
  ambientOn = false;
-
  updateSoundButton();
-
 }
-
-
-/* BOTÃO DE SOM */
 
 function updateSoundButton(){
-
- $("soundToggle").textContent =
-  ambientOn
-   ? "♫ Som ambiente: ligado"
-   : "♫ Som ambiente: desligado";
-
- $("soundToggle").setAttribute(
-  "aria-pressed",
-  String(ambientOn)
- );
-
+ $("soundToggle").textContent = ambientOn
+  ? "♫ Som ambiente: ligado"
+  : "♫ Som ambiente: desligado";
+ $("soundToggle").setAttribute("aria-pressed",String(ambientOn));
 }
 
-
-/* SOM DE SELEÇÃO */
-
 function clickSound(){
-
  const ctx = getAudio();
-
  if(!ctx) return;
 
  const osc = ctx.createOscillator();
  const gain = ctx.createGain();
 
  osc.type = "sine";
-
- osc.frequency.setValueAtTime(
-  660,
-  ctx.currentTime
- );
-
- osc.frequency.exponentialRampToValueAtTime(
-  880,
-  ctx.currentTime + 0.07
- );
-
- gain.gain.setValueAtTime(
-  0.0001,
-  ctx.currentTime
- );
-
- gain.gain.exponentialRampToValueAtTime(
-  0.045,
-  ctx.currentTime + 0.012
- );
-
- gain.gain.exponentialRampToValueAtTime(
-  0.0001,
-  ctx.currentTime + 0.12
- );
+ osc.frequency.setValueAtTime(660,ctx.currentTime);
+ osc.frequency.exponentialRampToValueAtTime(880,ctx.currentTime+0.07);
+ gain.gain.setValueAtTime(0.0001,ctx.currentTime);
+ gain.gain.exponentialRampToValueAtTime(0.045,ctx.currentTime+0.012);
+ gain.gain.exponentialRampToValueAtTime(0.0001,ctx.currentTime+0.12);
 
  osc.connect(gain);
  gain.connect(ctx.destination);
-
  osc.start();
- osc.stop(ctx.currentTime + 0.13);
+ osc.stop(ctx.currentTime+0.13);
 
  osc.onended = ()=>{
   osc.disconnect();
   gain.disconnect();
  };
-
 }
 
-
-/* CONTROLE DO SOM */
-
 $("soundToggle").onclick = ()=>{
-
- if(ambientOn){
-  stopAmbient();
- }else{
-  startAmbient();
- }
-
+ if(ambientOn) stopAmbient();
+ else startAmbient();
 };
 
+/* VERIFICAR SE O PERSONAGEM JÁ RESPONDEU */
+
+async function characterAlreadySubmitted(name){
+ const {data,error} = await supabaseClient.rpc(
+  "personagem_ja_enviado",
+  {p_personagem:name}
+ );
+
+ if(error) throw error;
+ return data === true;
+}
 
 /* MOSTRAR PERGUNTA */
 
 function renderQuestion(){
-
  const [name,desc] = SKILLS[current];
 
- $("counter").textContent =
-  `PERÍCIA ${current+1} DE 28`;
-
- $("percent").textContent =
-  `${Math.round((current+1)/28*100)}%`;
-
- $("progressBar").style.width =
-  `${(current+1)/28*100}%`;
-
+ $("counter").textContent = `PERÍCIA ${current+1} DE 28`;
+ $("percent").textContent = `${Math.round((current+1)/28*100)}%`;
+ $("progressBar").style.width = `${(current+1)/28*100}%`;
  $("quizCharacter").textContent = character;
-
  $("skillName").textContent = name;
-
  $("skillDescription").textContent = desc;
-
  $("answers").innerHTML = "";
 
  OPTIONS.forEach(([letter,label])=>{
-
   const button = document.createElement("button");
-
-  button.className =
-   "answer" +
-   (selected[current] === letter ? " selected" : "");
+  button.className = "answer" + (selected[current] === letter ? " selected" : "");
 
   const mark = document.createElement("span");
   mark.className = "letter";
@@ -918,115 +420,100 @@ function renderQuestion(){
   button.append(mark,text);
 
   button.addEventListener("click",()=>{
-
    selected[current] = letter;
-
    clickSound();
-
    renderQuestion();
-
   });
 
   $("answers").appendChild(button);
-
  });
 
  $("back").disabled = current === 0;
-
- $("next").textContent =
-  current === 27
-   ? "Finalizar avaliação"
-   : "Próxima perícia";
-
+ $("next").textContent = current === 27
+  ? "Finalizar avaliação"
+  : "Próxima perícia";
 }
-
 
 /* COMEÇAR A AVALIAÇÃO */
 
-/*
- Não fazemos SELECT público aqui.
- O Supabase impede respostas duplicadas pela chave primária.
-*/
-
-$("start").onclick = ()=>{
-
- startAmbient();
-
+$("start").onclick = async ()=>{
  character = $("character").value;
 
  if(!CHARACTERS.includes(character)){
-
   alert("Selecione um personagem para começar.");
-
   return;
-
  }
 
- selected = Array(28).fill(null);
+ const startButton = $("start");
+ startButton.disabled = true;
+ startButton.textContent = "Verificando personagem...";
+ setStatus("homeStatus","Consultando registro...");
 
- current = 0;
+ try{
+  const alreadySubmitted = await characterAlreadySubmitted(character);
 
- renderQuestion();
+  if(alreadySubmitted){
+   setStatus(
+    "homeStatus",
+    `${character} já possui uma avaliação. Peça à mestra para excluir o registro antes de responder novamente.`,
+    true
+   );
+   return;
+  }
 
- show("quiz");
+  setStatus("homeStatus","");
+  selected = Array(28).fill(null);
+  current = 0;
 
+  renderQuestion();
+  show("quiz");
+  startAmbient();
+
+ }catch(e){
+  console.error(e);
+  setStatus(
+   "homeStatus",
+   "Não foi possível verificar o personagem. Confira sua conexão e tente novamente.",
+   true
+  );
+ }finally{
+  startButton.disabled = false;
+  startButton.textContent = "Começar avaliação";
+ }
 };
-
 
 /* VOLTAR PERGUNTA */
 
 $("back").onclick = ()=>{
-
  if(current > 0){
-
   current--;
-
   renderQuestion();
-
  }
-
 };
-
 
 /* PRÓXIMA PERGUNTA E ENVIO */
 
 $("next").onclick = async ()=>{
-
  if(!selected[current]){
-
   alert("Escolha uma alternativa antes de continuar.");
-
   return;
-
  }
 
  if(current < 27){
-
   current++;
-
   renderQuestion();
-
   return;
-
  }
 
  $("next").disabled = true;
+ $("next").textContent = "Enviando...";
 
  try{
-
   const payload = {
-
-   personagem: character,
-
-   respostas: Object.fromEntries(
-
-    SKILLS.map(([skill],i)=>[
-     skill,
-     selected[i]
-    ])
-
+   personagem:character,
+   respostas:Object.fromEntries(
+    SKILLS.map(([skill],i)=>[skill,selected[i]])
    )
-
   };
 
   const {error} = await supabaseClient
@@ -1034,315 +521,228 @@ $("next").onclick = async ()=>{
    .insert(payload);
 
   if(error){
-
    if(error.code === "23505"){
-
     throw new Error(
      "Esse personagem já enviou uma avaliação. Peça à mestra para liberar uma nova tentativa."
     );
-
    }
-
    throw error;
-
   }
 
   $("doneText").textContent =
    `A avaliação de ${character} foi enviada com sucesso.`;
-
   setStatus("sendStatus","Registro recebido.");
-
   show("done");
 
  }catch(e){
-
-  alert(
-   e.message ||
-   "Não foi possível enviar as respostas. Tente novamente."
-  );
-
+  alert(e.message || "Não foi possível enviar as respostas. Tente novamente.");
   console.error(e);
-
  }finally{
-
   $("next").disabled = false;
-
+  $("next").textContent = "Finalizar avaliação";
  }
-
 };
-
 
 /* VOLTAR AO INÍCIO */
 
 $("returnHome").onclick = ()=>{
-
  $("character").value = "";
-
  selected = Array(28).fill(null);
-
  current = 0;
-
+ setStatus("homeStatus","");
  show("home");
-
 };
 
-
-/* ABRIR LOGIN DO MESTRE */
+/* LOGIN DO MESTRE */
 
 $("masterOpen").onclick = ()=>{
-
  $("masterEmail").value = "";
  $("masterPassword").value = "";
-
  setStatus("loginError","");
-
  show("masterLogin");
-
 };
 
-
-/* VOLTAR DO LOGIN */
-
-$("loginBack").onclick = ()=>{
-
- show("home");
-
-};
-
-
-/* LOGIN */
+$("loginBack").onclick = ()=>show("home");
 
 $("login").onclick = async ()=>{
-
  const email = $("masterEmail").value.trim();
-
  const password = $("masterPassword").value;
 
  if(!email || !password){
-
-  setStatus(
-   "loginError",
-   "Digite seu e-mail e sua senha.",
-   true
-  );
-
+  setStatus("loginError","Digite seu e-mail e sua senha.",true);
   return;
-
  }
 
  $("login").disabled = true;
-
  setStatus("loginError","Entrando...");
 
  try{
-
-  const {data,error} =
-   await supabaseClient.auth.signInWithPassword({
-    email,
-    password
-   });
+  const {data,error} = await supabaseClient.auth.signInWithPassword({
+   email,password
+  });
 
   if(error) throw error;
 
   if(data.user.id !== MASTER_USER_ID){
-
    await supabaseClient.auth.signOut();
-
-   throw new Error(
-    "Esta conta não tem permissão para acessar a área da mestra."
-   );
-
+   throw new Error("Esta conta não tem permissão para acessar a área da mestra.");
   }
 
   await renderDashboard();
-
   show("dashboard");
 
  }catch(e){
-
-  setStatus(
-   "loginError",
-   e.message || "Não foi possível entrar.",
-   true
-  );
-
+  setStatus("loginError",e.message || "Não foi possível entrar.",true);
   console.error(e);
-
  }finally{
-
   $("login").disabled = false;
-
  }
-
 };
-
 
 /* SAIR */
 
 $("logout").onclick = async ()=>{
-
  await supabaseClient.auth.signOut();
-
  show("home");
-
 };
 
-
-/* VERIFICAR AUTORIZAÇÃO */
+/* AUTORIZAÇÃO DO MESTRE */
 
 async function requireMaster(){
+ const {data,error} = await supabaseClient.auth.getUser();
 
- const {data,error} =
-  await supabaseClient.auth.getUser();
-
- if(
-  error ||
-  !data.user ||
-  data.user.id !== MASTER_USER_ID
- ){
-
-  throw new Error(
-   "Sua sessão não está autorizada. Entre novamente."
-  );
-
+ if(error || !data.user || data.user.id !== MASTER_USER_ID){
+  throw new Error("Sua sessão não está autorizada. Entre novamente.");
  }
 
  return data.user;
-
 }
-
 
 /* CARREGAR PAINEL */
 
 async function renderDashboard(){
-
  await requireMaster();
 
  $("records").innerHTML = "";
-
  $("detail").classList.add("hidden");
-
  setStatus("dashboardStatus","Carregando avaliações...");
 
  const {data,error} = await supabaseClient
   .from(TABLE)
   .select("personagem,respostas,enviado_em")
+  .order("enviado_em",{ascen
   .order("enviado_em",{ascending:false});
 
  if(error) throw error;
 
  $("recordCount").textContent = data.length;
 
- setStatus(
-  "dashboardStatus",
-  data.length
-   ? "Avaliações carregadas."
-   : "Nenhuma avaliação recebida ainda."
- );
-
  if(!data.length){
   $("records").innerHTML =
-   '<p class="small">Nenhuma avaliação registrada.</p>';
+   '<p class="small center">Nenhuma avaliação recebida ainda.</p>';
+  setStatus("dashboardStatus","Nenhum registro encontrado.");
   return;
  }
 
- data.forEach(rec=>{
+ setStatus("dashboardStatus",`${data.length} avaliação(ões) encontrada(s).`);
 
-  const row = document.createElement("div");
-  row.className = "record";
+ data.forEach(record=>{
+  const item = document.createElement("div");
+  item.className = "record";
 
-  const left = document.createElement("div");
-  const strong = document.createElement("strong");
-  const small = document.createElement("small");
+  const info = document.createElement("div");
 
-  strong.textContent = rec.personagem;
-  small.textContent = rec.enviado_em
-   ? new Date(rec.enviado_em).toLocaleString("pt-BR")
+  const name = document.createElement("strong");
+  name.textContent = record.personagem;
+
+  const date = document.createElement("small");
+  date.textContent = record.enviado_em
+   ? new Date(record.enviado_em).toLocaleString("pt-BR")
    : "Data não disponível";
 
-  left.append(strong,small);
+  info.append(name,date);
 
   const actions = document.createElement("div");
   actions.className = "record-actions";
 
   const view = document.createElement("button");
   view.className = "secondary";
-  view.textContent = "Ver respostas";
-  view.onclick = ()=>showDetail(rec);
+  view.textContent = "Visualizar";
+  view.onclick = ()=>showDetails(record);
 
-  const del = document.createElement("button");
-  del.className = "danger";
-  del.textContent = "Excluir";
-  del.onclick = ()=>deleteRecord(rec.personagem);
+  const remove = document.createElement("button");
+  remove.className = "danger";
+  remove.textContent = "Excluir";
+  remove.onclick = ()=>deleteRecord(record.personagem);
 
-  actions.append(view,del);
-  row.append(left,actions);
-
-  $("records").appendChild(row);
+  actions.append(view,remove);
+  item.append(info,actions);
+  $("records").appendChild(item);
  });
 }
-
 
 /* VISUALIZAR RESPOSTAS */
 
-function showDetail(rec){
-
+function showDetails(record){
  const detail = $("detail");
-
+ detail.innerHTML = "";
  detail.classList.remove("hidden");
 
- detail.innerHTML =
-  '<hr><div class="toprow"><strong></strong>' +
-  '<button class="ghost" id="closeDetail">Fechar</button>' +
-  '</div><div class="result-grid" id="resultGrid"></div>';
+ const title = document.createElement("h3");
+ title.textContent = `Avaliação: ${record.personagem}`;
+ detail.appendChild(title);
 
- detail.querySelector("strong").textContent =
-  "Respostas — " + rec.personagem;
+ const date = document.createElement("p");
+ date.className = "small";
+ date.textContent = record.enviado_em
+  ? `Enviada em ${new Date(record.enviado_em).toLocaleString("pt-BR")}`
+  : "Data não disponível";
+ detail.appendChild(date);
 
- const grid = detail.querySelector("#resultGrid");
+ const grid = document.createElement("div");
+ grid.className = "result-grid";
 
- SKILLS.forEach(([skill])=>{
+ SKILLS.forEach(([skill],index)=>{
+  const value = record.respostas?.[skill];
 
-  const item = document.createElement("div");
-  item.className = "result-item";
+  const option = OPTIONS.find(item=>item[0] === value);
+  const result = document.createElement("div");
+  result.className = "result-item";
 
-  const bold = document.createElement("b");
-  const span = document.createElement("span");
+  const name = document.createElement("b");
+  name.textContent = `${index+1}. ${skill}`;
 
-  const letter = rec.respostas?.[skill];
-
-  const answer = OPTIONS.find(option=>option[0] === letter);
-
-  bold.textContent = skill;
-  span.textContent = answer
-   ? answer[0] + " — " + answer[1]
+  const answer = document.createElement("span");
+  answer.textContent = option
+   ? `${option[0]} — ${option[1]}`
    : "Sem resposta";
 
-  item.append(bold,span);
-  grid.appendChild(item);
+  result.append(name,answer);
+  grid.appendChild(result);
  });
 
- detail.querySelector("#closeDetail").onclick = ()=>{
-  detail.classList.add("hidden");
- };
+ detail.appendChild(grid);
 
- detail.scrollIntoView({
-  behavior:"smooth",
-  block:"start"
- });
+ const close = document.createElement("button");
+ close.className = "ghost";
+ close.textContent = "Fechar respostas";
+ close.style.marginTop = "15px";
+ close.onclick = ()=>detail.classList.add("hidden");
+
+ detail.appendChild(close);
+ detail.scrollIntoView({behavior:"smooth",block:"start"});
 }
-
 
 /* EXCLUIR AVALIAÇÃO */
 
 async function deleteRecord(name){
+ const confirmed = confirm(
+  `Tem certeza de que deseja excluir a avaliação de ${name}?\n\nEssa ação não pode ser desfeita.`
+ );
 
- if(!confirm(
-  `Excluir a avaliação de ${name}? O personagem poderá responder novamente.`
- )) return;
+ if(!confirmed) return;
 
  try{
-
   await requireMaster();
 
   const {error} = await supabaseClient
@@ -1352,103 +752,90 @@ async function deleteRecord(name){
 
   if(error) throw error;
 
+  $("detail").classList.add("hidden");
   await renderDashboard();
 
+  setStatus(
+   "dashboardStatus",
+   `Avaliação de ${name} excluída. O personagem pode responder novamente.`
+  );
+
  }catch(e){
-
-  alert(e.message || "Não foi possível excluir.");
   console.error(e);
-
+  alert(e.message || "Não foi possível excluir a avaliação.");
  }
 }
-
 
 /* EXPORTAR CSV */
 
 $("export").onclick = async ()=>{
-
  try{
-
   await requireMaster();
 
   const {data,error} = await supabaseClient
    .from(TABLE)
    .select("personagem,respostas,enviado_em")
-   .order("personagem");
+   .order("enviado_em",{ascending:false});
 
   if(error) throw error;
 
-  const rows = [[
+  if(!data || !data.length){
+   alert("Não existem avaliações para exportar.");
+   return;
+  }
+
+  const headers = [
    "Personagem",
-   ...SKILLS.map(skill=>skill[0]),
-   "Enviado em"
-  ]];
+   "Data de envio",
+   ...SKILLS.map(([skill])=>skill)
+  ];
 
-  data.forEach(record=>{
+  const rows = data.map(record=>[
+   record.personagem,
+   record.enviado_em
+    ? new Date(record.enviado_em).toLocaleString("pt-BR")
+    : "",
+   ...SKILLS.map(([skill])=>{
+    const value = record.respostas?.[skill];
+    const option = OPTIONS.find(item=>item[0] === value);
+    return option ? `${option[0]} - ${option[1]}` : "";
+   })
+  ]);
 
-   rows.push([
-    record.personagem,
-    ...SKILLS.map(([skill])=>record.respostas?.[skill] || ""),
-    record.enviado_em || ""
-   ]);
+  const escapeCSV = value =>
+   `"${String(value ?? "").replace(/"/g,'""')}"`;
 
-  });
-
-  const csv = rows.map(row=>
-   row.map(value=>
-    '"' + String(value ?? "").replace(/"/g,'""') + '"'
-   ).join(";")
-  ).join("\r\n");
+  const csv = [
+   headers.map(escapeCSV).join(";"),
+   ...rows.map(row=>row.map(escapeCSV).join(";"))
+  ].join("\r\n");
 
   const blob = new Blob(
-   ["\ufeff" + csv],
-   {type:"text/csv;charset=utf-8"}
+   ["\uFEFF"+csv],
+   {type:"text/csv;charset=utf-8;"}
   );
 
   const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
+  const link = document.createElement("a");
 
-  a.href = url;
-  a.download = "avaliacoes_pericias.csv";
-  a.click();
+  link.href = url;
+  link.download = "avaliacoes_ordem_paranormal.csv";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
 
   URL.revokeObjectURL(url);
 
  }catch(e){
-
-  alert(e.message || "Não foi possível exportar.");
   console.error(e);
-
+  alert(e.message || "Não foi possível exportar as avaliações.");
  }
 };
 
+/* FINALIZAÇÃO */
 
-/* RESTAURAR SESSÃO DO MESTRE */
-
-(async()=>{
-
- const {data} = await supabaseClient.auth.getSession();
-
- if(
-  data.session &&
-  data.session.user.id === MASTER_USER_ID
- ){
-
-  try{
-
-   await renderDashboard();
-   show("dashboard");
-
-  }catch(e){
-
-   await supabaseClient.auth.signOut();
-   show("home");
-
-  }
-
- }
-
-})();
+show("home");
+updateSoundButton();
 
 </script>
 </body>
