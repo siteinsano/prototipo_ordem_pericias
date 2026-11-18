@@ -1,209 +1,1455 @@
-
 <!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#100d16">
-<title>Avaliação de Perícias — Ordem Paranormal</title>
+<title>Avaliação de Perícias | Ordem Paranormal</title>
+
 <style>
 :root{
- --bg:#0c0a10;--panel:#17121e;--panel2:#21192b;--line:#49345e;
- --purple:#9b6bd1;--purple2:#7445a8;--light:#d8c2f4;--white:#f7f3fb;
- --muted:#b9afc3;--danger:#e29aab;--ok:#b9dfc3;
+ --bg:#0c0a10;
+ --panel:#17121e;
+ --line:#49345e;
+ --purple:#9b6bd1;
+ --light:#d8c2f4;
+ --white:#f7f3fb;
+ --muted:#b9afc3;
+ --danger:#e29aab;
+ --ok:#b9dfc3;
 }
+
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;color:var(--white);background:radial-gradient(ellipse at 50% -10%,#352044 0,#17101e 36%,var(--bg) 76%);font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-button,select{font:inherit}
-main{width:min(760px,100%);margin:auto;padding:28px 18px 56px}
-header{text-align:center;margin:8px 0 25px}
-.sig{font-size:.7rem;letter-spacing:.27em;text-transform:uppercase;color:var(--light)}
-h1{font-size:clamp(1.65rem,6vw,2.45rem);line-height:1.1;letter-spacing:.04em;margin:10px 0 8px}
-.subtitle{color:var(--muted);font-size:.92rem}
-.card{background:linear-gradient(145deg,rgba(35,26,46,.97),rgba(20,16,26,.98));border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 16px 45px #0005}
-.stack{display:grid;gap:15px}
-label{display:block;font-size:.8rem;color:var(--light);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
-select{width:100%;background:#100d16;color:var(--white);border:1px solid #63477d;border-radius:12px;padding:14px 13px;outline:none}
-button{border:0;border-radius:12px;padding:13px 17px;font-weight:750;cursor:pointer;transition:transform .12s,filter .12s}
+
+body{
+ margin:0;
+ min-height:100vh;
+ color:var(--white);
+ background:radial-gradient(ellipse at 50% -10%,#352044 0,#17101e 36%,var(--bg) 76%);
+ font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+button,input,select{font:inherit}
+
+main{
+ width:min(760px,100%);
+ margin:auto;
+ padding:25px 16px 45px;
+}
+
+header{
+ text-align:center;
+ margin:8px 0 22px;
+}
+
+.sig{
+ font-size:.7rem;
+ letter-spacing:.25em;
+ text-transform:uppercase;
+ color:var(--light);
+}
+
+h1{
+ font-size:clamp(1.6rem,6vw,2.4rem);
+ line-height:1.12;
+ letter-spacing:.04em;
+ margin:10px 0 7px;
+}
+
+.subtitle{
+ color:var(--muted);
+ font-size:.92rem;
+}
+
+.alpha{
+ display:inline-block;
+ border:1px solid #76549a;
+ color:#e4d1fa;
+ border-radius:99px;
+ padding:3px 10px;
+ font-size:.65rem;
+ letter-spacing:.17em;
+ margin-top:8px;
+}
+
+.card{
+ background:linear-gradient(145deg,rgba(35,26,46,.97),rgba(20,16,26,.98));
+ border:1px solid var(--line);
+ border-radius:20px;
+ padding:21px;
+ box-shadow:0 16px 45px #0005;
+}
+
+.stack{display:grid;gap:14px}
+
+label{
+ display:block;
+ font-size:.78rem;
+ color:var(--light);
+ font-weight:750;
+ letter-spacing:.08em;
+ text-transform:uppercase;
+ margin-bottom:7px;
+}
+
+select,input{
+ width:100%;
+ background:#100d16;
+ color:var(--white);
+ border:1px solid #63477d;
+ border-radius:12px;
+ padding:13px;
+ outline:none;
+}
+
+button{
+ border:0;
+ border-radius:12px;
+ padding:13px 16px;
+ font-weight:750;
+ cursor:pointer;
+ transition:transform .12s,filter .12s;
+}
+
 button:active{transform:scale(.985)}
-.primary{background:linear-gradient(135deg,#a477d5,#70439e);color:white;box-shadow:0 7px 20px #7d4eaa44}
-.secondary{background:#2a2035;color:var(--white);border:1px solid #5c4374}
-.ghost{background:transparent;color:var(--light);border:1px solid #5c4374}
-.danger{background:#48202e;color:#ffdce4;border:1px solid #8d465d}
+button:disabled{opacity:.45;cursor:not-allowed}
+
+.primary{
+ background:linear-gradient(135deg,#a477d5,#70439e);
+ color:white;
+ box-shadow:0 7px 20px #7d4eaa44;
+}
+
+.secondary{
+ background:#2a2035;
+ color:var(--white);
+ border:1px solid #5c4374;
+}
+
+.ghost{
+ background:transparent;
+ color:var(--light);
+ border:1px solid #5c4374;
+}
+
+.danger{
+ background:#48202e;
+ color:#ffdce4;
+ border:1px solid #8d465d;
+}
+
 .small{font-size:.78rem;color:var(--muted)}
-.notice{border-left:3px solid var(--purple);padding:10px 12px;background:#21182b;border-radius:0 10px 10px 0;color:#d8cde2;font-size:.83rem}
-.toprow{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:17px}
-.progress{height:7px;background:#33283e;border-radius:9px;overflow:hidden;margin:10px 0 22px}
-.progress>div{height:100%;background:linear-gradient(90deg,#71459a,#c19be9);width:0;transition:width .2s}
-.character-banner{background:#251a32;border:1px solid #644782;border-radius:13px;padding:13px 15px;margin-bottom:22px}
-.character-banner .eyebrow{font-size:.68rem;color:var(--light);letter-spacing:.14em;text-transform:uppercase}
-.character-banner strong{display:block;font-size:1.25rem;margin-top:2px}
-.question-number{font-size:.76rem;color:var(--light);letter-spacing:.12em;text-transform:uppercase}
-h2{font-size:clamp(1.7rem,6vw,2.15rem);margin:3px 0 4px}
-.description{color:#c9c0d1;font-size:.9rem;margin:0 0 20px}
+
+.notice{
+ border-left:3px solid var(--purple);
+ padding:10px 12px;
+ background:#21182b;
+ border-radius:0 10px 10px 0;
+ color:#d8cde2;
+ font-size:.83rem;
+}
+
+.toprow{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:12px;
+ margin-bottom:15px;
+}
+
+.progress{
+ height:7px;
+ background:#33283e;
+ border-radius:9px;
+ overflow:hidden;
+ margin:10px 0 20px;
+}
+
+.progress>div{
+ height:100%;
+ background:linear-gradient(90deg,#71459a,#c19be9);
+ width:0;
+ transition:width .2s;
+}
+
+.character-banner{
+ background:#251a32;
+ border:1px solid #644782;
+ border-radius:13px;
+ padding:12px 14px;
+ margin-bottom:20px;
+}
+
+.character-banner .eyebrow{
+ font-size:.67rem;
+ color:var(--light);
+ letter-spacing:.14em;
+ text-transform:uppercase;
+}
+
+.character-banner strong{
+ display:block;
+ font-size:1.2rem;
+ margin-top:2px;
+}
+
+.question-number{
+ font-size:.74rem;
+ color:var(--light);
+ letter-spacing:.12em;
+ text-transform:uppercase;
+}
+
+h2{
+ font-size:clamp(1.65rem,6vw,2.1rem);
+ margin:3px 0 4px;
+}
+
+.description{
+ color:#c9c0d1;
+ font-size:.9rem;
+ margin:0 0 18px;
+}
+
 .answers{display:grid;gap:9px}
-.answer{display:flex;align-items:center;gap:12px;text-align:left;width:100%;padding:12px 14px;background:#17121e;color:var(--white);border:1px solid #49345e;border-radius:13px}
-.answer .letter{width:34px;height:34px;display:grid;place-items:center;flex:none;border-radius:10px;background:#30213e;color:#e3cff9;font-weight:850}
-.answer.selected{border:2px solid #bd94e8;background:#2a1d37;box-shadow:0 0 0 2px #a77bd122}
-.answer.selected .letter{background:#8b5db9;color:white}
-.nav{display:flex;gap:10px;margin-top:22px}
+
+.answer{
+ display:flex;
+ align-items:center;
+ gap:12px;
+ text-align:left;
+ width:100%;
+ padding:11px 13px;
+ background:#17121e;
+ color:var(--white);
+ border:1px solid #49345e;
+ border-radius:13px;
+}
+
+.answer .letter{
+ width:34px;
+ height:34px;
+ display:grid;
+ place-items:center;
+ flex:none;
+ border-radius:10px;
+ background:#30213e;
+ color:#e3cff9;
+ font-weight:850;
+}
+
+.answer.selected{
+ border:2px solid #bd94e8;
+ background:#2a1d37;
+ box-shadow:0 0 0 2px #a77bd122;
+}
+
+.answer.selected .letter{
+ background:#8b5db9;
+ color:white;
+}
+
+.nav{
+ display:flex;
+ gap:10px;
+ margin-top:20px;
+}
+
 .nav button{flex:1}
+
 .hidden{display:none!important}
 .center{text-align:center}
-hr{border:0;border-top:1px solid #49345e;margin:20px 0}
+
+hr{
+ border:0;
+ border-top:1px solid #49345e;
+ margin:18px 0;
+}
+
 .list{display:grid;gap:10px}
-.record{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#17121e;border:1px solid #49345e;border-radius:12px;padding:13px}
+
+.record{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ background:#17121e;
+ border:1px solid #49345e;
+ border-radius:12px;
+ padding:13px;
+}
+
 .record strong{display:block}
 .record small{color:var(--muted)}
-.record-actions{display:flex;gap:7px;flex-wrap:wrap}
-.record-actions button{padding:8px 10px;font-size:.78rem}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.stat{padding:13px;background:#17121e;border:1px solid #49345e;border-radius:12px}
-.stat b{font-size:1.5rem;display:block}
-.stat span{font-size:.75rem;color:var(--muted)}
-.result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.result-item{padding:10px;background:#17121e;border:1px solid #40304f;border-radius:10px}
-.result-item b{display:block;font-size:.86rem}
-.result-item span{font-size:.78rem;color:var(--light)}
-.status{color:var(--ok);font-size:.82rem}
-footer{text-align:center;color:#8f8498;font-size:.72rem;margin-top:24px}
-@media(max-width:480px){main{padding:20px 13px 40px}.card{padding:17px}.nav{flex-direction:column}.record{align-items:flex-start;flex-direction:column}.result-grid{grid-template-columns:1fr}}
+
+.record-actions{
+ display:flex;
+ gap:7px;
+ flex-wrap:wrap;
+}
+
+.record-actions button{
+ padding:8px 10px;
+ font-size:.78rem;
+}
+
+.stats{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:10px;
+}
+
+.stat{
+ padding:13px;
+ background:#17121e;
+ border:1px solid #49345e;
+ border-radius:12px;
+}
+
+.stat b{
+ font-size:1.5rem;
+ display:block;
+}
+
+.stat span{
+ font-size:.75rem;
+ color:var(--muted);
+}
+
+.result-grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:8px;
+}
+
+.result-item{
+ padding:10px;
+ background:#17121e;
+ border:1px solid #40304f;
+ border-radius:10px;
+}
+
+.result-item b{
+ display:block;
+ font-size:.86rem;
+}
+
+.result-item span{
+ font-size:.78rem;
+ color:var(--light);
+}
+
+.status{
+ font-size:.82rem;
+ color:var(--ok);
+ min-height:1.2em;
+}
+
+.sound-toggle{
+ position:fixed;
+ right:12px;
+ bottom:12px;
+ z-index:5;
+ background:#241a30;
+ color:#eadcf8;
+ border:1px solid #72528f;
+ border-radius:99px;
+ padding:10px 13px;
+ font-size:.78rem;
+ box-shadow:0 5px 18px #0007;
+}
+
+footer{
+ text-align:center;
+ color:#8f8498;
+ font-size:.7rem;
+ margin-top:22px;
+ letter-spacing:.14em;
+}
+
+@media(max-width:480px){
+ main{padding:19px 12px 65px}
+ .card{padding:16px}
+ .nav{flex-direction:column}
+ .record{align-items:flex-start;flex-direction:column}
+ .result-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
+
 <body>
 <main>
+
 <header>
  <div class="sig">Ordem Paranormal • Arquivo de avaliação</div>
  <h1>AVALIAÇÃO DE PERÍCIAS</h1>
  <div class="subtitle">Descubra no que seu personagem é bom.</div>
+ <div class="alpha">VERSÃO ALPHA</div>
 </header>
 
+<!-- INÍCIO -->
+
 <section id="home" class="card stack">
+
  <div>
   <label for="character">Seu personagem</label>
+
   <select id="character">
    <option value="">Selecione um personagem...</option>
-   <option>Kalel</option><option>Lisandre</option><option>Sol</option>
-   <option>Arman</option><option>Ísis</option><option>Morgana</option>
-   <option>Ykaro</option><option>Virgulino</option><option>Cristina</option>
+   <option>Kalel</option>
+   <option>Lisandre</option>
+   <option>Sol</option>
+   <option>Arman</option>
+   <option>Ísis</option>
+   <option>Morgana</option>
+   <option>Ykaro</option>
+   <option>Virgulino</option>
+   <option>Cristina</option>
   </select>
  </div>
- <div class="notice">Escolha o personagem — não coloque seu nome verdadeiro. Cada personagem tem uma avaliação própria.</div>
+
+ <div class="notice">
+  Escolha o personagem — não coloque seu nome verdadeiro.
+  Cada personagem tem uma avaliação própria.
+ </div>
+
  <button class="primary" id="start">Começar avaliação</button>
  <button class="ghost" id="masterOpen">Acesso do mestre</button>
+
  <p class="small center">28 perícias • 6 opções por pergunta</p>
 </section>
 
+<!-- QUESTIONÁRIO -->
+
 <section id="quiz" class="card hidden">
- <div class="toprow"><span class="question-number" id="counter">PERÍCIA 1 DE 28</span><span class="small" id="percent">0%</span></div>
- <div class="progress"><div id="progressBar"></div></div>
- <div class="character-banner"><div class="eyebrow">Seu personagem é bom em:</div><strong id="quizCharacter"></strong></div>
+
+ <div class="toprow">
+  <span class="question-number" id="counter">PERÍCIA 1 DE 28</span>
+  <span class="small" id="percent">4%</span>
+ </div>
+
+ <div class="progress">
+  <div id="progressBar"></div>
+ </div>
+
+ <div class="character-banner">
+  <div class="eyebrow">Seu personagem é bom em:</div>
+  <strong id="quizCharacter"></strong>
+ </div>
+
  <div class="question-number">Avaliação de habilidade</div>
- <h2 id="skillName">Acrobacia</h2>
+ <h2 id="skillName"></h2>
  <p class="description" id="skillDescription"></p>
+
  <div class="answers" id="answers"></div>
+
  <div class="nav">
   <button class="secondary" id="back">Voltar</button>
   <button class="primary" id="next">Próxima perícia</button>
  </div>
 </section>
 
+<!-- CONCLUSÃO -->
+
 <section id="done" class="card stack hidden">
+
  <div class="center">
   <div class="sig">Avaliação concluída</div>
-  <h2>Respostas registradas</h2>
+  <h2>Respostas enviadas</h2>
   <p class="subtitle" id="doneText"></p>
  </div>
- <div class="notice">Este é um protótipo: neste momento, os registros ficam salvos somente neste navegador. Não compartilhe o link com os jogadores como versão definitiva ainda.</div>
+
+ <p class="status center" id="sendStatus" role="status"></p>
+
  <button class="primary" id="returnHome">Voltar ao início</button>
 </section>
 
+<!-- LOGIN DO MESTRE -->
+
 <section id="masterLogin" class="card stack hidden">
- <div><div class="sig">Área restrita</div><h2>Painel do mestre</h2><p class="subtitle">Digite a senha para consultar os registros.</p></div>
- <div><label for="masterPassword">Senha do mestre</label><input id="masterPassword" type="password" autocomplete="current-password" style="width:100%;background:#100d16;color:white;border:1px solid #63477d;border-radius:12px;padding:14px"></div>
- <p class="small" id="loginError" role="alert"></p>
+
+ <div>
+  <div class="sig">Área restrita</div>
+  <h2>Painel do mestre</h2>
+  <p class="subtitle">
+   Entre com o e-mail e a senha da conta autorizada.
+  </p>
+ </div>
+
+ <div>
+  <label for="masterEmail">E-mail</label>
+  <input id="masterEmail" type="email"
+   autocomplete="username" placeholder="Seu e-mail">
+ </div>
+
+ <div>
+  <label for="masterPassword">Senha</label>
+  <input id="masterPassword" type="password"
+   autocomplete="current-password" placeholder="Sua senha">
+ </div>
+
+ <p class="status" id="loginError" role="alert"></p>
+
  <button class="primary" id="login">Entrar</button>
  <button class="ghost" id="loginBack">Voltar</button>
 </section>
 
+<!-- PAINEL DO MESTRE -->
+
 <section id="dashboard" class="card stack hidden">
- <div class="toprow"><div><div class="sig">Área restrita</div><h2>Painel do mestre</h2></div><button class="ghost" id="logout">Sair</button></div>
- <div class="stats"><div class="stat"><b id="recordCount">0</b><span>Avaliações salvas</span></div><div class="stat"><b>9</b><span>Personagens permitidos</span></div></div>
- <div class="toprow"><strong>Registros</strong><button class="secondary" id="export">Exportar CSV</button></div>
+
+ <div class="toprow">
+  <div>
+   <div class="sig">Área restrita</div>
+   <h2>Painel do mestre</h2>
+  </div>
+  <button class="ghost" id="logout">Sair</button>
+ </div>
+
+ <div class="stats">
+  <div class="stat">
+   <b id="recordCount">0</b>
+   <span>Avaliações recebidas</span>
+  </div>
+
+  <div class="stat">
+   <b>9</b>
+   <span>Personagens disponíveis</span>
+  </div>
+ </div>
+
+ <div class="toprow">
+  <strong>Registros</strong>
+  <button class="secondary" id="export">Exportar CSV</button>
+ </div>
+
+ <p class="status" id="dashboardStatus" role="status"></p>
+
  <div id="records" class="list"></div>
- <p class="notice">Excluir um registro libera somente aquele personagem para responder novamente. A exclusão não pode ser desfeita.</p>
+
+ <p class="notice">
+  Excluir uma avaliação libera aquele personagem para responder novamente.
+  A exclusão não pode ser desfeita.
+ </p>
+
  <div id="detail" class="hidden"></div>
 </section>
-<footer>Protótipo visual • Tema roxo, branco e preto</footer>
+
+<footer>ORDEM PARANORMAL • ALPHA</footer>
+
 </main>
+
+<button id="soundToggle" class="sound-toggle"
+ type="button" aria-pressed="false">
+ ♫ Som ambiente: desligado
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
+
+/* CONFIGURAÇÃO DO SUPABASE */
+
+const SUPABASE_URL =
+"https://pbfiptrhubcfcbfaavwe.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+"sb_publishable_KgZxhpvrgADE1xY1bDfHBA_YFKf8vhS";
+
+const MASTER_USER_ID =
+"9b07d077-2d6c-4ba3-92cb-dcf623554a6b";
+
+const TABLE = "respostas_personagens";
+
+const supabaseClient = window.supabase.createClient(
+ SUPABASE_URL,
+ SUPABASE_PUBLISHABLE_KEY
+);
+
+
+/* PERÍCIAS */
+
 const SKILLS = [
+
 ["Acrobacia","Realizar movimentos ágeis, saltos e equilibrar-se."],
+
 ["Adestramento","Treinar, controlar e lidar com animais."],
+
 ["Artes","Produzir, interpretar ou avaliar obras artísticas."],
+
 ["Atletismo","Correr, saltar, escalar e realizar esforços físicos."],
+
 ["Atualidades","Conhecer acontecimentos recentes e informações gerais."],
+
 ["Ciências","Aplicar conhecimentos científicos, como biologia, química e física."],
+
 ["Crime","Arrombar fechaduras, furtar e realizar atividades criminosas."],
+
 ["Diplomacia","Negociar, convencer e resolver conflitos pacificamente."],
+
 ["Enganação","Mentir, blefar e disfarçar suas intenções."],
+
 ["Fortitude","Resistir a doenças, venenos e condições físicas adversas."],
+
 ["Furtividade","Esconder-se e movimentar-se sem ser percebido."],
+
 ["Iniciativa","Reagir rapidamente e agir no começo de uma situação."],
+
 ["Intimidação","Assustar, ameaçar ou pressionar alguém."],
+
 ["Intuição","Perceber intenções, sentimentos e comportamentos suspeitos."],
+
 ["Investigação","Procurar pistas, analisar evidências e solucionar mistérios."],
+
 ["Luta","Utilizar armas corpo a corpo e realizar ataques físicos."],
+
 ["Medicina","Diagnosticar problemas, tratar ferimentos e prestar primeiros socorros."],
+
 ["Ocultismo","Conhecer rituais, criaturas e fenômenos paranormais."],
+
 ["Percepção","Notar detalhes por meio dos sentidos."],
+
 ["Pilotagem","Conduzir veículos e controlar meios de transporte."],
+
 ["Pontaria","Utilizar armas de ataque à distância com precisão."],
+
 ["Profissão","Aplicar conhecimentos específicos de uma profissão."],
+
 ["Reflexos","Reagir rapidamente a ameaças e evitar perigos."],
+
 ["Religião","Conhecer religiões, crenças, símbolos e práticas religiosas."],
+
 ["Sobrevivência","Encontrar recursos, orientar-se e sobreviver em ambientes hostis."],
+
 ["Tática","Elaborar estratégias e coordenar ações em situações de combate."],
+
 ["Tecnologia","Utilizar, consertar e compreender equipamentos tecnológicos."],
+
 ["Vontade","Resistir a pressões psicológicas, medo e manipulações mentais."]
+
 ];
-const OPTIONS=[
-["A","Desconhece completamente"],["B","Muito ruim nisso"],["C","Meio ruim nisso"],
-["D","Neutro nisso"],["E","Meio bom nisso"],["F","Muito bom nisso!"]
+
+
+/* ALTERNATIVAS */
+
+const OPTIONS = [
+
+["A","Desconhece completamente"],
+["B","Muito ruim nisso"],
+["C","Meio ruim nisso"],
+["D","Neutro nisso"],
+["E","Meio bom nisso"],
+["F","Muito bom nisso!"]
+
 ];
-const DEMO_MASTER_PASSWORD = "Senhadomestre"; // Somente para demonstração local. Não é seguro em um site público.
-const STORAGE_KEY="ordem_pericias_demo_v1";
-let current=0, selected=Array(28).fill(null), character="", masterAuthed=false;
-const $=id=>document.getElementById(id);
-function show(id){["home","quiz","done","masterLogin","dashboard"].forEach(x=>$(x).classList.toggle("hidden",x!==id));}
-function readRecords(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}")}catch(e){return {}}}
-function saveRecords(data){localStorage.setItem(STORAGE_KEY,JSON.stringify(data))}
+
+
+/* PERSONAGENS */
+
+const CHARACTERS = [
+ "Kalel",
+ "Lisandre",
+ "Sol",
+ "Arman",
+ "Ísis",
+ "Morgana",
+ "Ykaro",
+ "Virgulino",
+ "Cristina"
+];
+
+
+/* ESTADOS */
+
+let current = 0;
+let selected = Array(28).fill(null);
+let character = "";
+
+let audioContext = null;
+let ambientNodes = null;
+let ambientOn = false;
+
+const $ = id => document.getElementById(id);
+
+
+/* NAVEGAÇÃO */
+
+function show(id){
+
+ const sections = [
+  "home",
+  "quiz",
+  "done",
+  "masterLogin",
+  "dashboard"
+ ];
+
+ sections.forEach(section=>{
+  $(section).classList.toggle("hidden",section !== id);
+ });
+
+}
+
+
+/* MENSAGENS */
+
+function setStatus(id,msg,isError=false){
+
+ $(id).textContent = msg;
+
+ $(id).style.color = isError
+  ? "#e9a5b5"
+  : "#b9dfc3";
+
+}
+
+
+/* SISTEMA DE SOM */
+
+function getAudio(){
+
+ const AudioCtx =
+  window.AudioContext ||
+  window.webkitAudioContext;
+
+ if(!AudioCtx) return null;
+
+ if(!audioContext){
+  audioContext = new AudioCtx();
+ }
+
+ if(audioContext.state === "suspended"){
+  audioContext.resume();
+ }
+
+ return audioContext;
+
+}
+
+
+/* SOM AMBIENTE */
+
+function startAmbient(){
+
+ const ctx = getAudio();
+
+ if(!ctx || ambientNodes) return;
+
+ const master = ctx.createGain();
+ master.gain.value = 0.018;
+ master.connect(ctx.destination);
+
+ const osc1 = ctx.createOscillator();
+ const osc2 = ctx.createOscillator();
+
+ const gain1 = ctx.createGain();
+ const gain2 = ctx.createGain();
+
+ osc1.type = "sine";
+ osc1.frequency.value = 110;
+ gain1.gain.value = 0.48;
+
+ osc2.type = "sine";
+ osc2.frequency.value = 164.81;
+ gain2.gain.value = 0.18;
+
+ osc1.connect(gain1);
+ osc2.connect(gain2);
+
+ gain1.connect(master);
+ gain2.connect(master);
+
+ osc1.start();
+ osc2.start();
+
+ ambientNodes = {
+  osc1,
+  osc2,
+  master
+ };
+
+ ambientOn = true;
+
+ updateSoundButton();
+
+}
+
+
+/* DESLIGAR SOM */
+
+function stopAmbient(){
+
+ if(!ambientNodes) return;
+
+ try{
+  ambientNodes.osc1.stop();
+  ambientNodes.osc2.stop();
+  ambientNodes.master.disconnect();
+ }catch(e){}
+
+ ambientNodes = null;
+ ambientOn = false;
+
+ updateSoundButton();
+
+}
+
+
+/* BOTÃO DE SOM */
+
+function updateSoundButton(){
+
+ $("soundToggle").textContent =
+  ambientOn
+   ? "♫ Som ambiente: ligado"
+   : "♫ Som ambiente: desligado";
+
+ $("soundToggle").setAttribute(
+  "aria-pressed",
+  String(ambientOn)
+ );
+
+}
+
+
+/* SOM DE SELEÇÃO */
+
 function clickSound(){
- try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;const ctx=new C();const o=ctx.createOscillator(),g=ctx.createGain();o.type="sine";o.frequency.setValueAtTime(620,ctx.currentTime);o.frequency.exponentialRampToValueAtTime(880,ctx.currentTime+.055);g.gain.setValueAtTime(.0001,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.055,ctx.currentTime+.012);g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.09);o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+.095);o.onended=()=>ctx.close()}catch(e){}
+
+ const ctx = getAudio();
+
+ if(!ctx) return;
+
+ const osc = ctx.createOscillator();
+ const gain = ctx.createGain();
+
+ osc.type = "sine";
+
+ osc.frequency.setValueAtTime(
+  660,
+  ctx.currentTime
+ );
+
+ osc.frequency.exponentialRampToValueAtTime(
+  880,
+  ctx.currentTime + 0.07
+ );
+
+ gain.gain.setValueAtTime(
+  0.0001,
+  ctx.currentTime
+ );
+
+ gain.gain.exponentialRampToValueAtTime(
+  0.045,
+  ctx.currentTime + 0.012
+ );
+
+ gain.gain.exponentialRampToValueAtTime(
+  0.0001,
+  ctx.currentTime + 0.12
+ );
+
+ osc.connect(gain);
+ gain.connect(ctx.destination);
+
+ osc.start();
+ osc.stop(ctx.currentTime + 0.13);
+
+ osc.onended = ()=>{
+  osc.disconnect();
+  gain.disconnect();
+ };
+
 }
+
+
+/* CONTROLE DO SOM */
+
+$("soundToggle").onclick = ()=>{
+
+ if(ambientOn){
+  stopAmbient();
+ }else{
+  startAmbient();
+ }
+
+};
+
+
+/* MOSTRAR PERGUNTA */
+
 function renderQuestion(){
- const [name,desc]=SKILLS[current];$("counter").textContent=`PERÍCIA ${current+1} DE 28`;$("percent").textContent=`${Math.round((current+1)/28*100)}%`;$("progressBar").style.width=`${(current+1)/28*100}%`;
- $("quizCharacter").textContent=character;$("skillName").textContent=name;$("skillDescription").textContent=desc;
- $("answers").innerHTML="";
- OPTIONS.forEach(([letter,label])=>{const b=document.createElement("button");b.className="answer"+(selected[current]===letter?" selected":"");b.innerHTML=`<span class="letter">${letter}</span><span>${label}</span>`;b.addEventListener("click",()=>{selected[current]=letter;clickSound();renderQuestion()});$("answers").appendChild(b)});
- $("back").disabled=current===0;$("back").style.opacity=current===0?".45":"1";$("next").textContent=current===27?"Finalizar avaliação":"Próxima perícia";
+
+ const [name,desc] = SKILLS[current];
+
+ $("counter").textContent =
+  `PERÍCIA ${current+1} DE 28`;
+
+ $("percent").textContent =
+  `${Math.round((current+1)/28*100)}%`;
+
+ $("progressBar").style.width =
+  `${(current+1)/28*100}%`;
+
+ $("quizCharacter").textContent = character;
+
+ $("skillName").textContent = name;
+
+ $("skillDescription").textContent = desc;
+
+ $("answers").innerHTML = "";
+
+ OPTIONS.forEach(([letter,label])=>{
+
+  const button = document.createElement("button");
+
+  button.className =
+   "answer" +
+   (selected[current] === letter ? " selected" : "");
+
+  const mark = document.createElement("span");
+  mark.className = "letter";
+  mark.textContent = letter;
+
+  const text = document.createElement("span");
+  text.textContent = label;
+
+  button.append(mark,text);
+
+  button.addEventListener("click",()=>{
+
+   selected[current] = letter;
+
+   clickSound();
+
+   renderQuestion();
+
+  });
+
+  $("answers").appendChild(button);
+
+ });
+
+ $("back").disabled = current === 0;
+
+ $("next").textContent =
+  current === 27
+   ? "Finalizar avaliação"
+   : "Próxima perícia";
+
 }
-$("start").onclick=()=>{character=$("character").value;if(!character){alert("Selecione o personagem para começar.");return}if(readRecords()[character]){alert("Esse personagem já tem uma avaliação salva. Peça ao mestre para excluir o registro antes de refazer.");return}selected=Array(28).fill(null);current=0;renderQuestion();show("quiz")};
-$("back").onclick=()=>{if(current>0){current--;renderQuestion()}};
-$("next").onclick=()=>{if(!selected[current]){alert("Escolha uma alternativa antes de continuar.");return}if(current<27){current++;renderQuestion();return}const records=readRecords();if(records[character]){alert("Já existe uma avaliação para esse personagem. Nenhum dado foi substituído.");show("home");return}records[character]={character,answers:selected.slice(),date:new Date().toISOString()};saveRecords(records);$("doneText").textContent=`A avaliação de ${character} foi concluída.`;show("done")};
-$("returnHome").onclick=()=>{ $("character").value="";show("home") };
-$("masterOpen").onclick=()=>{ $("masterPassword").value="";$("loginError").textContent="";show("masterLogin") };
-$("loginBack").onclick=()=>show("home");
-$("login").onclick=()=>{if($("masterPassword").value!==DEMO_MASTER_PASSWORD){$("loginError").textContent="Senha incorreta.";return}masterAuthed=true;renderDashboard();show("dashboard")};
-$("logout").onclick=()=>{masterAuthed=false;show("home")};
-function renderDashboard(){
- if(!masterAuthed)return;const records=readRecords();const names=Object.keys(records);$("recordCount").textContent=names.length;$("records").innerHTML="";$("detail").classList.add("hidden");
- if(!names.length){$("records").innerHTML='<p class="small">Nenhuma avaliação registrada neste navegador.</p>';return}
- names.sort().forEach(name=>{const rec=records[name],row=document.createElement("div");row.className="record";const left=document.createElement("div");left.innerHTML=`<strong>${escapeHtml(name)}</strong><small>${new Date(rec.date).toLocaleString("pt-BR")}</small>`;const actions=document.createElement("div");actions.className="record-actions";const view=document.createElement("button");view.className="secondary";view.textContent="Ver respostas";view.onclick=()=>showDetail(name);const del=document.createElement("button");del.className="danger";del.textContent="Excluir";del.onclick=()=>{if(confirm(`Excluir a avaliação de ${name}? O personagem poderá responder novamente.`)){const fresh=readRecords();delete fresh[name];saveRecords(fresh);renderDashboard()}};actions.append(view,del);row.append(left,actions);$("records").appendChild(row)});
+
+
+/* COMEÇAR A AVALIAÇÃO */
+
+/*
+ Não fazemos SELECT público aqui.
+ O Supabase impede respostas duplicadas pela chave primária.
+*/
+
+$("start").onclick = ()=>{
+
+ startAmbient();
+
+ character = $("character").value;
+
+ if(!CHARACTERS.includes(character)){
+
+  alert("Selecione um personagem para começar.");
+
+  return;
+
+ }
+
+ selected = Array(28).fill(null);
+
+ current = 0;
+
+ renderQuestion();
+
+ show("quiz");
+
+};
+
+
+/* VOLTAR PERGUNTA */
+
+$("back").onclick = ()=>{
+
+ if(current > 0){
+
+  current--;
+
+  renderQuestion();
+
+ }
+
+};
+
+
+/* PRÓXIMA PERGUNTA E ENVIO */
+
+$("next").onclick = async ()=>{
+
+ if(!selected[current]){
+
+  alert("Escolha uma alternativa antes de continuar.");
+
+  return;
+
+ }
+
+ if(current < 27){
+
+  current++;
+
+  renderQuestion();
+
+  return;
+
+ }
+
+ $("next").disabled = true;
+
+ try{
+
+  const payload = {
+
+   personagem: character,
+
+   respostas: Object.fromEntries(
+
+    SKILLS.map(([skill],i)=>[
+     skill,
+     selected[i]
+    ])
+
+   )
+
+  };
+
+  const {error} = await supabaseClient
+   .from(TABLE)
+   .insert(payload);
+
+  if(error){
+
+   if(error.code === "23505"){
+
+    throw new Error(
+     "Esse personagem já enviou uma avaliação. Peça à mestra para liberar uma nova tentativa."
+    );
+
+   }
+
+   throw error;
+
+  }
+
+  $("doneText").textContent =
+   `A avaliação de ${character} foi enviada com sucesso.`;
+
+  setStatus("sendStatus","Registro recebido.");
+
+  show("done");
+
+ }catch(e){
+
+  alert(
+   e.message ||
+   "Não foi possível enviar as respostas. Tente novamente."
+  );
+
+  console.error(e);
+
+ }finally{
+
+  $("next").disabled = false;
+
+ }
+
+};
+
+
+/* VOLTAR AO INÍCIO */
+
+$("returnHome").onclick = ()=>{
+
+ $("character").value = "";
+
+ selected = Array(28).fill(null);
+
+ current = 0;
+
+ show("home");
+
+};
+
+
+/* ABRIR LOGIN DO MESTRE */
+
+$("masterOpen").onclick = ()=>{
+
+ $("masterEmail").value = "";
+ $("masterPassword").value = "";
+
+ setStatus("loginError","");
+
+ show("masterLogin");
+
+};
+
+
+/* VOLTAR DO LOGIN */
+
+$("loginBack").onclick = ()=>{
+
+ show("home");
+
+};
+
+
+/* LOGIN */
+
+$("login").onclick = async ()=>{
+
+ const email = $("masterEmail").value.trim();
+
+ const password = $("masterPassword").value;
+
+ if(!email || !password){
+
+  setStatus(
+   "loginError",
+   "Digite seu e-mail e sua senha.",
+   true
+  );
+
+  return;
+
+ }
+
+ $("login").disabled = true;
+
+ setStatus("loginError","Entrando...");
+
+ try{
+
+  const {data,error} =
+   await supabaseClient.auth.signInWithPassword({
+    email,
+    password
+   });
+
+  if(error) throw error;
+
+  if(data.user.id !== MASTER_USER_ID){
+
+   await supabaseClient.auth.signOut();
+
+   throw new Error(
+    "Esta conta não tem permissão para acessar a área da mestra."
+   );
+
+  }
+
+  await renderDashboard();
+
+  show("dashboard");
+
+ }catch(e){
+
+  setStatus(
+   "loginError",
+   e.message || "Não foi possível entrar.",
+   true
+  );
+
+  console.error(e);
+
+ }finally{
+
+  $("login").disabled = false;
+
+ }
+
+};
+
+
+/* SAIR */
+
+$("logout").onclick = async ()=>{
+
+ await supabaseClient.auth.signOut();
+
+ show("home");
+
+};
+
+
+/* VERIFICAR AUTORIZAÇÃO */
+
+async function requireMaster(){
+
+ const {data,error} =
+  await supabaseClient.auth.getUser();
+
+ if(
+  error ||
+  !data.user ||
+  data.user.id !== MASTER_USER_ID
+ ){
+
+  throw new Error(
+   "Sua sessão não está autorizada. Entre novamente."
+  );
+
+ }
+
+ return data.user;
+
 }
-function showDetail(name){const rec=readRecords()[name];if(!rec)return;const d=$("detail");d.classList.remove("hidden");d.innerHTML=`<hr><div class="toprow"><strong>Respostas — ${escapeHtml(name)}</strong><button class="ghost" id="closeDetail">Fechar</button></div><div class="result-grid" id="resultGrid"></div>`;const grid=d.querySelector("#resultGrid");SKILLS.forEach(([skill],i)=>{const item=document.createElement("div");item.className="result-item";const answer=OPTIONS.find(x=>x[0]===rec.answers[i]);item.innerHTML=`<b>${escapeHtml(skill)}</b><span>${answer?answer[0]+" — "+escapeHtml(answer[1]):"Sem resposta"}</span>`;grid.appendChild(item)});d.querySelector("#closeDetail").onclick=()=>d.classList.add("hidden");d.scrollIntoView({behavior:"smooth",block:"start"})}
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-$("export").onclick=()=>{const records=readRecords(),rows=[["Personagem",...SKILLS.map(s=>s[0]),"Data"]];Object.values(records).forEach(r=>rows.push([r.character,...r.answers,r.date]));const csv=rows.map(row=>row.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(";")).join("\n");const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="avaliacoes_pericias.csv";a.click();URL.revokeObjectURL(url)};
+
+
+/* CARREGAR PAINEL */
+
+async function renderDashboard(){
+
+ await requireMaster();
+
+ $("records").innerHTML = "";
+
+ $("detail").classList.add("hidden");
+
+ setStatus("dashboardStatus","Carregando avaliações...");
+
+ const {data,error} = await supabaseClient
+  .from(TABLE)
+  .select("personagem,respostas,enviado_em")
+  .order("enviado_em",{ascending:false});
+
+ if(error) throw error;
+
+ $("recordCount").textContent = data.length;
+
+ setStatus(
+  "dashboardStatus",
+  data.length
+   ? "Avaliações carregadas."
+   : "Nenhuma avaliação recebida ainda."
+ );
+
+ if(!data.length){
+  $("records").innerHTML =
+   '<p class="small">Nenhuma avaliação registrada.</p>';
+  return;
+ }
+
+ data.forEach(rec=>{
+
+  const row = document.createElement("div");
+  row.className = "record";
+
+  const left = document.createElement("div");
+  const strong = document.createElement("strong");
+  const small = document.createElement("small");
+
+  strong.textContent = rec.personagem;
+  small.textContent = rec.enviado_em
+   ? new Date(rec.enviado_em).toLocaleString("pt-BR")
+   : "Data não disponível";
+
+  left.append(strong,small);
+
+  const actions = document.createElement("div");
+  actions.className = "record-actions";
+
+  const view = document.createElement("button");
+  view.className = "secondary";
+  view.textContent = "Ver respostas";
+  view.onclick = ()=>showDetail(rec);
+
+  const del = document.createElement("button");
+  del.className = "danger";
+  del.textContent = "Excluir";
+  del.onclick = ()=>deleteRecord(rec.personagem);
+
+  actions.append(view,del);
+  row.append(left,actions);
+
+  $("records").appendChild(row);
+ });
+}
+
+
+/* VISUALIZAR RESPOSTAS */
+
+function showDetail(rec){
+
+ const detail = $("detail");
+
+ detail.classList.remove("hidden");
+
+ detail.innerHTML =
+  '<hr><div class="toprow"><strong></strong>' +
+  '<button class="ghost" id="closeDetail">Fechar</button>' +
+  '</div><div class="result-grid" id="resultGrid"></div>';
+
+ detail.querySelector("strong").textContent =
+  "Respostas — " + rec.personagem;
+
+ const grid = detail.querySelector("#resultGrid");
+
+ SKILLS.forEach(([skill])=>{
+
+  const item = document.createElement("div");
+  item.className = "result-item";
+
+  const bold = document.createElement("b");
+  const span = document.createElement("span");
+
+  const letter = rec.respostas?.[skill];
+
+  const answer = OPTIONS.find(option=>option[0] === letter);
+
+  bold.textContent = skill;
+  span.textContent = answer
+   ? answer[0] + " — " + answer[1]
+   : "Sem resposta";
+
+  item.append(bold,span);
+  grid.appendChild(item);
+ });
+
+ detail.querySelector("#closeDetail").onclick = ()=>{
+  detail.classList.add("hidden");
+ };
+
+ detail.scrollIntoView({
+  behavior:"smooth",
+  block:"start"
+ });
+}
+
+
+/* EXCLUIR AVALIAÇÃO */
+
+async function deleteRecord(name){
+
+ if(!confirm(
+  `Excluir a avaliação de ${name}? O personagem poderá responder novamente.`
+ )) return;
+
+ try{
+
+  await requireMaster();
+
+  const {error} = await supabaseClient
+   .from(TABLE)
+   .delete()
+   .eq("personagem",name);
+
+  if(error) throw error;
+
+  await renderDashboard();
+
+ }catch(e){
+
+  alert(e.message || "Não foi possível excluir.");
+  console.error(e);
+
+ }
+}
+
+
+/* EXPORTAR CSV */
+
+$("export").onclick = async ()=>{
+
+ try{
+
+  await requireMaster();
+
+  const {data,error} = await supabaseClient
+   .from(TABLE)
+   .select("personagem,respostas,enviado_em")
+   .order("personagem");
+
+  if(error) throw error;
+
+  const rows = [[
+   "Personagem",
+   ...SKILLS.map(skill=>skill[0]),
+   "Enviado em"
+  ]];
+
+  data.forEach(record=>{
+
+   rows.push([
+    record.personagem,
+    ...SKILLS.map(([skill])=>record.respostas?.[skill] || ""),
+    record.enviado_em || ""
+   ]);
+
+  });
+
+  const csv = rows.map(row=>
+   row.map(value=>
+    '"' + String(value ?? "").replace(/"/g,'""') + '"'
+   ).join(";")
+  ).join("\r\n");
+
+  const blob = new Blob(
+   ["\ufeff" + csv],
+   {type:"text/csv;charset=utf-8"}
+  );
+
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+
+  a.href = url;
+  a.download = "avaliacoes_pericias.csv";
+  a.click();
+
+  URL.revokeObjectURL(url);
+
+ }catch(e){
+
+  alert(e.message || "Não foi possível exportar.");
+  console.error(e);
+
+ }
+};
+
+
+/* RESTAURAR SESSÃO DO MESTRE */
+
+(async()=>{
+
+ const {data} = await supabaseClient.auth.getSession();
+
+ if(
+  data.session &&
+  data.session.user.id === MASTER_USER_ID
+ ){
+
+  try{
+
+   await renderDashboard();
+   show("dashboard");
+
+  }catch(e){
+
+   await supabaseClient.auth.signOut();
+   show("home");
+
+  }
+
+ }
+
+})();
+
 </script>
 </body>
 </html>
