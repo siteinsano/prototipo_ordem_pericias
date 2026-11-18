@@ -630,7 +630,6 @@ async function renderDashboard(){
  const {data,error} = await supabaseClient
   .from(TABLE)
   .select("personagem,respostas,enviado_em")
-  .order("enviado_em",{ascen
   .order("enviado_em",{ascending:false});
 
  if(error) throw error;
